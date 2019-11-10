@@ -11,16 +11,14 @@
 <meta charset="UTF-8">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!-- css -->
-<link rel="stylesheet" href="../template/css/index.css">
 
-<!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<link rel="stylesheet" href="template/css/index.css">
 
-<!-- js -->
-<script src="../template/js/index.js" type="text/javascript"></script>
-<!-- font-awesome -->
-<link rel="stylesheet" href="../template/fontawesome/css/all.css">
+ <script src="template\js\jquery.min.js"></script>
+
+<script src="template\js\index.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="template/fontawesome/css/all.css">
 
 <title>Index</title>
 </head>

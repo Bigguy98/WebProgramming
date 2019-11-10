@@ -11,19 +11,16 @@
 	<meta charset="UTF-8">
 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<!-- css -->
-	<link rel="stylesheet" href="index.css">
-	<link rel="stylesheet" href="product-detail.css">
+	
+        <link rel="stylesheet" href="template/css/index.css">
+	<link rel="stylesheet" href="template/css/product-detail.css">
 
-	<!-- jQuery library -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="template\js\jquery.min.js"></script>
 
-	<!-- js -->
-	<script src="index.js" type="text/javascript"></script>
+	<script src="template/js/index.js" type="text/javascript"></script>
 
-	<!-- font-awesome -->
-	<link rel="stylesheet" href="../fontawesome/css/all.css">
-	<link rel="stylesheet" href="../fontawesome/css/fontawesome.min.css">
+	<link rel="stylesheet" href="template/fontawesome/css/all.css">
+	<link rel="stylesheet" href="template/fontawesome/css/fontawesome.min.css">
 
 	<title>Product-detail</title>
 </head>

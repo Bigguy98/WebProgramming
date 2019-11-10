@@ -11,17 +11,14 @@
 	<meta charset="UTF-8"> 
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<!-- font-awesome -->
-	<link rel="stylesheet" href="../fontawesome/css/all.css">
+	<link rel="stylesheet" href="template/fontawesome/css/all.css">
 	
-	<!-- jQuery library -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="template\js\jquery.min.js"></script>
+        <script src="template/js/jquery.min.js"></script>
 
-	<!-- css -->
-	<link rel="stylesheet" href="../template/css/login.css">
+	<link rel="stylesheet" href="template/css/login.css">
 
-	<!-- js -->
-	<script type="text/javascript" src="../template/js/login.js"></script>
+	<script type="text/javascript" src="template/js/login.js"></script>
 
 	<title>Login</title>
 </head>
@@ -29,7 +26,7 @@
 	<div class="background">
 		<div class="login">
 			<form action="index.html" id="login-form">
-				<span class="logo top"><img src="images/LogoVM.png" alt=""></span>
+				<span class="logo top"><img src="template/images/LogoVM.png" alt=""></span>
 				<span class="title top">Login</span>
 				<div class="text-box">
 					<i class="fas fa-user"></i>
@@ -43,7 +40,7 @@
 
 				</div>
 				<div class="forget">
-					<a href="">Quen mat khau?</a>
+					<a href="">Forgot password?</a>
 				</div>
 				<div class="remember">
 					<input type="checkbox" id="check">
@@ -58,7 +55,7 @@
 			
 			<div class="register">
 				<form action="" id="register-form">
-					<span class="logo top"><img src="images/LogoVM.png" alt=""></span>
+					<span class="logo top"><img src="template/images/LogoVM.png" alt=""></span>
 					<span class="title top">Register</span>
 					<div class="text-box">
 						<input type="text" id="name" placeholder="Name">
@@ -87,46 +84,6 @@
 		</div>
 	</div>
 	<script>
-		function kiemtra(e) {
-			e.preventDefault();
-			var user= document.getElementById("username");
-			var pass= document.getElementById("password");
-			var myRe = new RegExp(/\W/);
-			console.log(myRe.test(pass.value));
-			if(user.value=="" || pass.value=="" || !myRe.test(pass.value)){
-				if(user.value == ""){
-					document.getElementById("erroruser").style.display="block";
-					document.getElementById("erroruser").innerHTML= "!Ten khong rong";
-				}else{
-					document.getElementById("erroruser").style.display="none";
-				}
-				if(pass.value ==""){
-
-					document.getElementById("errorpass").style.display="block";
-					document.getElementById("errorpass").innerHTML="!Ten khong rong";
-				}
-				else{
-					document.getElementById("errorpass").style.display="none";
-				}
-				if(!myRe.test(pass.value) && pass.value!=""){
-					document.getElementById("errorpass").style.display="block";
-					document.getElementById("errorpass").innerHTML= "!phai co ki tu dac biet";
-				}else{
-					document.getElementById("errorpass").style.display="none";
-				}
-			}
-			else{
-				document.getElementById("erroruser").style.display="none";
-				document.getElementById("errorpass").style.display="none";
-				alert("thanh cong");
-			}
-
-		}
-
-			var form= document.getElementById("login-form");
-			form.addEventListener("submit",kiemtra,false);
-			// body...
-
 		
 	</script>
 </body>
