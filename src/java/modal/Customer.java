@@ -18,20 +18,28 @@ public class Customer implements Serializable{
     private String address;
     private String username;
     private String password;
-    private String role;
+
 
     public Customer() {
     }
 
-    public Customer(int id, String name, int age,String address, String username, String password, String role) {
+    public Customer(int id, String name, int age,String address, String username, String password) {
         this.id = id;
         this.name = name;
         this.age = age;
         this.address = address;
         this.username = username;
         this.password = password;
-        this.role = role;
     }
+
+    public Customer(String name, int age, String address, String username, String password) {
+        this.name = name;
+        this.age = age;
+        this.address = address;
+        this.username = username;
+        this.password = password;
+    }
+    
 
     public int getId() {
         return id;
@@ -81,13 +89,6 @@ public class Customer implements Serializable{
         this.password = password;
     }
 
-    public String getRole() {
-        return role;
-    }
-
-    public void setRole(String role) {
-        this.role = role;
-    }
     
     
 }   

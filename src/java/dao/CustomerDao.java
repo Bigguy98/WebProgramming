@@ -13,7 +13,7 @@ import modal.Customer;
  */
 public interface CustomerDao {
     
-    void create(Customer customer);
+    int create(Customer customer);
     
     void edit(Customer customer);
     

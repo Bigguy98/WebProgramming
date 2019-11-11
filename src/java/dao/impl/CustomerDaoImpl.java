@@ -22,40 +22,37 @@ import jdbc.JDBCConnection;
  */
 public class CustomerDaoImpl extends JDBCConnection implements CustomerDao{
 
+    public CustomerDaoImpl() {
+        super();
+    }
+    
+    
+    
+
     @Override
-    public void create(Customer customer) {
-        Connection con=super.getConnect();
+    public int create(Customer customer) {       
         try {
-            String Sql="INSERT INTO customer(name,age,address,username,password,role)"
-                + "VALUES(?,?,?,?,?,?)";
+            String Sql="INSERT INTO customer(name,age,address,username,password)"
+                + "VALUES(?,?,?,?,?)";
             
-            PreparedStatement statement= con.prepareStatement(Sql, Statement.RETURN_GENERATED_KEYS);
+            PreparedStatement statement= conn.prepareStatement(Sql, Statement.RETURN_GENERATED_KEYS);
             
             statement.setString(1, customer.getName());
             statement.setInt(2, customer.getAge());
             statement.setString(3, customer.getAddress());
             statement.setString(4, customer.getUsername());
             statement.setString(5, customer.getPassword());
-            statement.setString(6, customer.getRole());
             
-            statement.executeQuery();
+            statement.executeUpdate();
             
-            ResultSet genResultSet = statement.getGeneratedKeys();
-            if(genResultSet.next()){
-                int id = genResultSet.getInt(1);
-                customer.setId(1);
+            ResultSet rs = statement.getGeneratedKeys();
+            if(rs.next()){
+                return rs.getInt(1);            
             }
         } catch (SQLException ex) {
             Logger.getLogger(CustomerDaoImpl.class.getName()).log(Level.SEVERE, null, ex);
-        }finally{
-            try {
-                con.close();
-            } catch (SQLException ex) {
-                Logger.getLogger(CustomerDaoImpl.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-        
-        
+        }     
+        return 0;
     }
 
     @Override
@@ -74,8 +71,27 @@ public class CustomerDaoImpl extends JDBCConnection implements CustomerDao{
     }
 
     @Override
-    public Customer getByUserName(String username) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Customer getByUserName(String keyword) {
+        try {
+            String sql = "select * from customer where username = ?";
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, keyword);
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()) {
+                Integer id = rs.getInt("id");
+                String name = rs.getString("name");
+                String username = rs.getString("username");
+                String password = rs.getString("password");
+                String address = rs.getString("address");
+                Integer age = rs.getInt("age");
+                Customer c = new Customer(id, name, age, address, username, password);
+                return c;
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(CustomerDaoImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } 
+        return null;
     }
 
     @Override

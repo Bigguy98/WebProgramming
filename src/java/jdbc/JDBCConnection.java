@@ -8,33 +8,27 @@ package jdbc;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
  * @author hoaiphat
  */
 public class JDBCConnection {
-    public Connection getConnect(){
-        String url = "jdbc:mysql://localhost:3306/shop";
+    protected Connection conn;
+
+    public JDBCConnection() {
+        String url = "jdbc:mysql://localhost:3306/ltweb?serverTimezone=UTC";
         String username = "root";
-	String password = "minh1998";
+	String password = "";
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection(url, username, password);
-            return con;
+            conn = DriverManager.getConnection(url, username, password);
 	} catch (ClassNotFoundException | SQLException e) {
+            Logger.getLogger(JDBCConnection.class.getName()).log(Level.SEVERE, null, e);
 	}
-
-	return null;
     }
-    public static void main(String[] args) {
-        JDBCConnection connection = new JDBCConnection();
-            Connection conn = connection.getConnect();
-
-            if (conn != null) {
-		System.out.println("THANH CONG");
-            } else {
-                System.out.println("THAT BAI");
-            }
-    }
+    
+    
 }

@@ -16,12 +16,16 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author vutha
  */
-@WebServlet(urlPatterns = {"/login"})
-public class LoginServlet extends HttpServlet{
+
+@WebServlet("/home")
+public class HomeServlet extends HttpServlet{
+
+    public HomeServlet() {
+    }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getServletContext().getRequestDispatcher("/view/login.jsp").forward(req, resp);
+        req.getServletContext().getRequestDispatcher("/view/index.jsp").forward(req, resp);
     }
     
     

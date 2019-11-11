@@ -29,7 +29,7 @@
 </div>
 <div class="header wrap">
 	<div class="logo">
-		<a href=""><img src="images/LogoVM.png" alt=""></a>
+		<a href=""><img src="template/images/LogoVM.png" alt=""></a>
 	</div>
 	<div class="header-right">
 		<div class="header-right-inner">
@@ -189,10 +189,10 @@
 			</div>
 			<div class="slide-right">
 				<div class="slide1">
-					<img src="images/slide1.png" alt="" class="img-1">
+					<img src="template/images/slide1.png" alt="" class="img-1">
 				</div>
 				<div class="slide2">
-					<img src="images/slide2.jpg" alt="" class="img-2">
+					<img src="template/images/slide2.jpg" alt="" class="img-2">
 				</div>
 			</div>
 		</div>

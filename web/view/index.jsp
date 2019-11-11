@@ -8,19 +8,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link rel="stylesheet" href="template/css/index.css">
+    <link rel="stylesheet" href="template/css/index.css">
+    <link rel="stylesheet" href="template/fontawesome/css/all.css">
 
- <script src="template\js\jquery.min.js"></script>
-
-<script src="template\js\index.js" type="text/javascript"></script>
-
-<link rel="stylesheet" href="template/fontawesome/css/all.css">
-
-<title>Index</title>
+    <title>Index</title>
 </head>
 <body>
     <jsp:include page="/view/header.jsp"></jsp:include>
@@ -45,7 +40,7 @@
 								<a href=""><i class="fas fa-cart-plus"></i></a>
 							</div>
 							<div class="item-img-info">
-								<img src="images/iphone11-pro.jpg" alt="">
+								<img src="template/images/iphone11-pro.jpg" alt="">
 							</div>
 						</div>
 						<div class="item-info">
@@ -63,7 +58,7 @@
 								<a href=""><i class="fas fa-cart-plus"></i></a>
 							</div>
 							<div class="item-img-info">
-								<img src="images/iphone11-pro.jpg" alt="">
+								<img src="template/images/iphone11-pro.jpg" alt="">
 							</div>
 						</div>
 						<div class="item-info">
@@ -81,7 +76,7 @@
 								<a href=""><i class="fas fa-cart-plus"></i></a>
 							</div>
 							<div class="item-img-info">
-								<img src="images/iphone11-pro.jpg" alt="">
+								<img src="template/images/iphone11-pro.jpg" alt="">
 							</div>
 						</div>
 						<div class="item-info">
@@ -99,7 +94,7 @@
 								<a href=""><i class="fas fa-cart-plus"></i></a>
 							</div>
 							<div class="item-img-info">
-								<img src="images/iphone11-pro.jpg" alt="">
+								<img src="template/images/iphone11-pro.jpg" alt="">
 							</div>
 						</div>
 						<div class="item-info">
@@ -117,7 +112,7 @@
 								<a href=""><i class="fas fa-cart-plus"></i></a>
 							</div>
 							<div class="item-img-info">
-								<img src="images/iphone11-pro.jpg" alt="">
+								<img src="template/images/iphone11-pro.jpg" alt="">
 							</div>
 						</div>
 						<div class="item-info">
@@ -136,6 +131,8 @@
 		</div>
 	</div>
     <jsp:include page="/view/footer.jsp" ></jsp:include>
+    <script src="template\js\jquery.min.js" type="text/javascript"></script>
+    <script src="template\js\index.js" type="text/javascript"></script>
 </body>
 </html>
 

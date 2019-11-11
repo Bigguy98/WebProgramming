@@ -9,16 +9,16 @@
 	<h2>Thương hiệu phổ biến</h2>
 	<div class="brand-smartphone-inner">
 		<div class="title-logo">
-			<a href=""><img src="images/logo-apple.jpg" alt=""></a>
+			<a href=""><img src="template/images/logo-apple.jpg" alt=""></a>
 		</div> 
 		<div class="title-logo">
-			<a href=""><img src="images/logo-samsung.jpg" alt=""></a>
+			<a href=""><img src="template/images/logo-samsung.jpg" alt=""></a>
 		</div>
 		<div class="title-logo">
-			<a href=""><img src="images/logo-vsmart.png" alt=""></a>
+			<a href=""><img src="template/images/logo-vsmart.png" alt=""></a>
 		</div>
 		<div class="title-logo">
-			<a href=""><img src="images/logo-huawei.jpg" alt=""></a>
+			<a href=""><img src="template/images/logo-huawei.jpg" alt=""></a>
 		</div>
 		
 	</div>

@@ -12,32 +12,24 @@
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="template/fontawesome/css/all.css">
-	
-        <script src="template\js\jquery.min.js"></script>
-        <script src="template/js/jquery.min.js"></script>
-
 	<link rel="stylesheet" href="template/css/login.css">
-
-	<script type="text/javascript" src="template/js/login.js"></script>
-
 	<title>Login</title>
 </head>
 <body>
 	<div class="background">
 		<div class="login">
-			<form action="index.html" id="login-form">
+                        <form>
 				<span class="logo top"><img src="template/images/LogoVM.png" alt=""></span>
 				<span class="title top">Login</span>
 				<div class="text-box">
 					<i class="fas fa-user"></i>
-					<input type="text" id="username" placeholder="Username">
+					<input type="text" id="login-username" placeholder="Username">
 					<span id="erroruser"></span>
 				</div>
 				<div class="text-box">
 					<i class="fas fa-lock"></i>
-					<input type="password" id="password" placeholder="Password">
+					<input type="password" id="login-password" placeholder="Password">
 					<span id="errorpass"></span>
-
 				</div>
 				<div class="forget">
 					<a href="">Forgot password?</a>
@@ -48,43 +40,42 @@
 
 				</div>
 				<div class="btn">
-					<input type="button" name="btndki"  value="Dang ki">
-					<input type="submit" name="btnsubmit" value="Dang nhap">
+                                    <input type="button" value="Log in" onclick="login()" style="margin-right: 20px">
+                                    <input type="button" onclick="showSigninPage()"  value="Sign in">                                                                                                           
 				</div>
 			</form>
 			
 			<div class="register">
-				<form action="" id="register-form">
+				<form>
 					<span class="logo top"><img src="template/images/LogoVM.png" alt=""></span>
 					<span class="title top">Register</span>
 					<div class="text-box">
-						<input type="text" id="name" placeholder="Name">
+						<input type="text" id="signin-name" placeholder="Name">
+					</div>
+					
+					<div class="text-box">
+						<input type="text" id="signin-address" placeholder="Address">
+					</div>		
+					<div class="text-box">
+						<input type="text" id="signin-username" placeholder="Username">
 					</div>
 					<div class="text-box">
-						<input type="number" id="age" placeholder="Age">
+						<input type="password" id="signin-password" placeholder="Password">
 					</div>
-					<div class="text-box">
-						<input type="text" id="address" placeholder="Address">
+                                        <div class="text-box">
+						<input type="text" id="signin-age" placeholder="Age">
 					</div>
-					<div class="text-box">
-						<input type="email" id="email" placeholder="Email">
-					</div>
-					<div class="text-box">
-						<input type="text" id="username-re" placeholder="Username">
-					</div>
-					<div class="text-box">
-						<input type="text" id="password-re" placeholder="Password">
-					</div>
-					<div class="btn">
-						<input type="submit" value="Dang ki">
+                                        <div class="btn" >
+                                            <input type="button" value="Back  " onclick="hideSigninPage()" style="margin-right: 20px">
+                                            <input type="button" value="Submit" onclick="signin()">
 					</div>
 				</form>
 			</div>
 
 		</div>
 	</div>
-	<script>
-		
-	</script>
+        <script src="template/js/jquery.min.js"></script>
+	<script type="text/javascript" src="template/js/login.js"></script>
+        
 </body>
 </html>
