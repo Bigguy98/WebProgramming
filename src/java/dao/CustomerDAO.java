@@ -5,13 +5,13 @@
  */
 package dao;
 import java.util.List;
-import modal.Customer;
+import model.Customer;
 
 /**
  *
  * @author hoaiphat
  */
-public interface CustomerDao {
+public interface CustomerDAO {
     
     int create(Customer customer);
     

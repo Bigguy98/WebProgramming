@@ -15,10 +15,6 @@
         <link rel="stylesheet" href="template/css/index.css">
 	<link rel="stylesheet" href="template/css/product-detail.css">
 
-	<script src="template\js\jquery.min.js"></script>
-
-	<script src="template/js/index.js" type="text/javascript"></script>
-
 	<link rel="stylesheet" href="template/fontawesome/css/all.css">
 	<link rel="stylesheet" href="template/fontawesome/css/fontawesome.min.css">
 
@@ -33,36 +29,39 @@
 		<li>
 			<a href="">Category</a>
 		</li>
-		<li class="active">iphone11-pro
+		<li class="active"> iphone11-pro
 		</li>
 	</ol>
+        <% int itemId = Integer.valueOf(request.getParameter("item_id")) ; %>
+        <script>var itemId =<%= itemId%>;
+            console.log("item id: " + itemId);
+        </script>
 
 	<div class="a-product-detail">
 		<div class="a-product-detail-inner">
 			<div class="col-6 col-12 img-product">
 				<div class="img-show">
-					<img src="images/iphone11-pro.jpg" alt="">
+					<img  alt="" id="product-image">
 				</div>
 			</div>
 			<div class="col-6 col-12 info-product">
 				<div class="info-product_inner">
-					<h4 class="name-product">Iphone_11_pro</h4>
-					<h4 class="price-product">30$</h4>
+					<h4 class="name-product" id="product-name"></h4>
+					<h4 class="price-product" id="product-price"></h4>
 					<div class="marketing-product">
-						<ul class="detail">
-							<li>
-								"Bảo hành: Bảo hành chính hãng 12 tháng, lỗi 1 đổi 1.Bao xài đổi trả trong vòng 15 ngày đầu tiên"
-							</li>
-							<li>
-								Giảm thêm 5% tới 300K qua VnPay QR code
-							</li>
-							<li>
-								"Khuyến mại: Hỗ trợ trả góp 0% dành cho các chủ thẻ tín dụng VPBank, VIB và Shinhan Bank, Bảo hành 1 đổi 1 chính hãng 12 tháng"
-							</li>
+						<ul class="detail" id="product-info">
+                                                    <li id="screen"></li>
+                                                    <li id="selfieCamera"></li>
+                                                    <li id="mainCamera"></li>
+                                                    <li id="ram"></li>
+                                                    <li id="rom"></li>
+                                                    <li id="gpu"></li>
+                                                    <li id="cpu"></li>
+                                                    <li id="os"></li>
 						</ul>
 					</div>
 
-					<div class="choose-color">
+<!--					<div class="choose-color">
 						<div class="label">Màu</div>
 						<div class="select-a-color">
 							<select name="" id="">
@@ -72,20 +71,18 @@
 								<option>Đỏ</option>
 							</select>
 						</div>
-					</div>
+					</div>-->
 
 					<div class="quantity-product">
 						<div class="label">Số lượng</div>
 						<div class="quantity-product-inner">
 							<div class="quantity">
-								<input type="button" id="minus" value="-" onclick="minus_quantity_product()">
-								<input type="number" id="values">
-								<input type="button" id="add" value="+" onclick="add_quantity_product()">
+								<input type="number" id="item-number">
 							</div>
 						</div>
 					</div>
 					<div class="add-product">
-						<button type="submit"> Thêm</button>
+						<button type="submit" onclick="addItemToCart()"> Thêm</button>
 					</div>
 				</div>
 			</div>
@@ -93,9 +90,10 @@
 		</div>
 	</div>
 	<jsp:include page="/view/footer.jsp" ></jsp:include>
-<!-- themsan pham -->
-<script src="js/them-soluong-sanpham.js" type="text/javascript">	</script>
-<!-- giam san pham -->
-<script src="js/gian-soluong-sanpham.js"></script>
+
+        <script src="template\js\jquery.min.js"></script>
+
+	<script src="template/js/product-detail.js" type="text/javascript"></script>
+
 </body>
 </html>

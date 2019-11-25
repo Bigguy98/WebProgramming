@@ -5,22 +5,22 @@
  */
 package dao.impl;
 
-import dao.CustomerDao;
-import java.sql.Connection;
+import dao.CustomerDAO;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import modal.Customer;
+import model.Customer;
 import jdbc.JDBCConnection;
 /**
  *
  * @author hoaiphat
  */
-public class CustomerDaoImpl extends JDBCConnection implements CustomerDao{
+public class CustomerDaoImpl extends JDBCConnection implements CustomerDAO{
 
     public CustomerDaoImpl() {
         super();
@@ -66,8 +66,27 @@ public class CustomerDaoImpl extends JDBCConnection implements CustomerDao{
     }
 
     @Override
-    public Customer getCustomer(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Customer getCustomer(int customerId) {
+        try {
+            String sql = "select * from customer where id = ?";
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setInt(1, customerId);
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()) {
+                Integer id = rs.getInt("id");
+                String name = rs.getString("name");
+                String username = rs.getString("username");
+                String password = rs.getString("password");
+                String address = rs.getString("address");
+                Integer age = rs.getInt("age");
+                Customer c = new Customer(id, name, age, address, username, password);
+                return c;
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(CustomerDaoImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } 
+        return null;
     }
 
     @Override
@@ -96,7 +115,25 @@ public class CustomerDaoImpl extends JDBCConnection implements CustomerDao{
 
     @Override
     public List<Customer> getAll() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        List<Customer> customers = new ArrayList<>();
+        try {
+            String sql = "select * from customer";
+            Statement statement = conn.createStatement();
+            ResultSet rs = statement.executeQuery(sql);
+            while(rs.next()) {
+                Integer id = rs.getInt("id");
+                String name = rs.getString("name");
+                String username = rs.getString("username");
+                String password = rs.getString("password");
+                String address = rs.getString("address");
+                Integer age = rs.getInt("age");
+                Customer c = new Customer(id, name, age, address, username, password);
+                customers.add(c);
+            } 
+        } catch (SQLException ex) {
+            Logger.getLogger(CustomerDaoImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return customers;
     }
 
     @Override

@@ -4,6 +4,12 @@
     margin: 0px;
 }
 
+.center-flex {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
 .menu .content-menu-canvans i.fas.fa-window-close {
     float: right;
     font-size: 20px;

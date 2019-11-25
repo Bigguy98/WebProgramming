@@ -20,8 +20,10 @@ function login() {
         },
         success: function (response) {        
             alert("Login success");
+            getCart(response);
+            sessionStorage.setItem("userId", response);  
             location.pathname = "/home";
-            sessionStorage.setItem("userId", response);
+                     
         },
         error: function(reponse) {
             alert(reponse.responseText);
@@ -53,14 +55,32 @@ function signin() {
         },
         success: function(response) {
             alert("Signin success");
+            getCart(response);
+            sessionStorage.setItem("userId", response);
             location.pathname = "/home";
-            sessionStorage.setItem("userId", response);          
+            
+            
         },
         error: function(reponse) {           
             alert(reponse.responseText);
         }
-    })
+    })   
+}
+
+function getCart(userId) {
     
+    $.ajax({
+        url: "/cart/getByCustomerId",
+        type: "post",
+        data: {
+            "customerId": userId
+        },
+        success: function (response) {
+            console.log("cart id: " + response);
+            sessionStorage.setItem("cartId", response);
+        }
+        
+    })
     
 }
 

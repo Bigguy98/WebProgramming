@@ -55,7 +55,7 @@
 				
 					<ul class="mainnav">
 						<li class="custom-item">
-							<a href="" class="title">
+							<a href="/home" class="title">
 								<span>Home</span>
 							</a>
 							
@@ -92,13 +92,9 @@
 								</ul>
 							</div>
 						</li>
+			
 						<li class="custom-item">
-							<a href="" class="title">
-								<span>Product-detail</span>
-							</a>
-						</li>
-						<li class="custom-item">
-							<a href="" class="title">
+							<a href="/cartDetail" class="title">
 								<span>Cart</span>
 							</a>
 						</li>

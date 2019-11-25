@@ -1,3 +1,102 @@
+
+var pageSize = 10;
+var currentPage = 1;
+var totalPage;
+$(document).ready(function () {
+    if(sessionStorage.getItem("userId")  === null) location.pathname = "/login";
+    
+    getTotalPage();
+    getItem();
+    
+});
+function getTotalPage() {
+    
+    $.ajax({
+        url: "/item/count",
+        type: "get",
+        success: function (number) {
+            totalPage = number/pageSize;
+            console.log("total items: " + number);
+        }
+        
+    })
+}
+function getItem() {
+    $('#list-items').empty();
+    $.ajax({
+        url: "/item/getAll",
+        type: "get",
+        data: {
+            "pageSize": pageSize,
+            "currentPage": currentPage
+        },
+        success: function (data) {
+            generateView(JSON.parse(data));
+        }
+        
+    })
+}
+function generateView(data) {
+    data.forEach(function(item){
+        console.log(item.name + " " + item.price);
+        
+        var item_product = document.createElement("div");
+        item_product.setAttribute("class", "item-product col-4 col-12 col-6");
+        
+        var item_inner = document.createElement("div");
+        item_inner.setAttribute("class", "item-inner");
+        
+        var item_img_cart = document.createElement("div");
+        item_img_cart.setAttribute("class","item-img-cart");
+        
+        var item_cart_info = document.createElement("div");
+        item_cart_info.setAttribute("class","item-cart-info");
+        
+        var a = document.createElement("a");
+        a.setAttribute("href","/detail?item_id=" + item.id);
+        
+        var i = document.createElement("i");
+        i.setAttribute("class","fas fa-cart-plus");
+        
+        a.appendChild(i);
+        item_cart_info.appendChild(a);
+        
+        var item_img_info = document.createElement("div");
+        item_img_info.setAttribute("class","item-img-info");
+        
+        var img = document.createElement("img");
+        img.setAttribute("src", "/image?image=" + item.image);
+        
+        item_img_info.appendChild(img);
+        
+        item_img_cart.appendChild(item_cart_info);
+        item_img_cart.appendChild(item_img_info);
+        
+        var item_info = document.createElement("div");
+        item_info.setAttribute("class", "item-info");
+        
+        var price = document.createElement("h2");
+        price.setAttribute("class","price-product");
+        price.innerHTML = item.price;
+        
+        var name = document.createElement("h2");
+        name.setAttribute("class","name-product");
+        name.innerHTML = item.name;
+        
+        item_info.appendChild(name);
+        item_info.appendChild(price);
+        
+        item_inner.appendChild(item_img_cart);
+        item_inner.appendChild(item_info);
+        
+        item_product.appendChild(item_inner);
+        
+        $('#list-items').append(item_product);
+    })
+    
+    check();
+}
+
 $(function () {
 
 	$('.content-level-1 i.fas.fa-plus:first()').click(function(event) {
@@ -34,3 +133,27 @@ $(function () {
 	});
 	// body...
 })
+
+function first() {
+    currentPage = 1;
+    getItem();
+}
+function previous() {
+    currentPage -= 1;
+    getItem();
+}
+
+function next() {
+    currentPage += 1;
+    getItem();
+}
+function last() {
+    currentPage = totalPage;
+    getItem();
+}
+function check() {
+    document.getElementById("first").disabled = currentPage === 1 ? true: false;
+    document.getElementById("previous").disabled = (currentPage === 1) ? true: false;
+    document.getElementById("next").disabled = (currentPage === totalPage) ? true: false;
+    document.getElementById("last").disabled = (currentPage === totalPage) ? true: false;
+}

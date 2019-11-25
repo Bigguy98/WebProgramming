@@ -15,9 +15,6 @@
         
 	<link rel="stylesheet" href="template/css/shop-cart.css">
 
-	<script src="template\js\jquery.min.js"></script>
-
-	<script src="template\js\index.js" type="text/javascript"></script>
 
 	<link rel="stylesheet" href="template/fontawesome/css/all.css">
 	
@@ -37,64 +34,27 @@
 		<div class="order-inner">
 			<div class="col-9 col-12 product">
 				<table class="table-shopping-cart">
-					<tbody>
-						<tr class="table-header">
+                                    <tr class="table-header">
 							<th class="column-1">product</th>
 							<th class="column-2"></th>
 							<th class="column-3">price</th>
 							<th class="column-4">quantity</th>
 							<th class="column-5">total</th>
 						</tr>
-						<tr class="table-row">
-							<td class="column-1">
-								<div class="img-product">
-									<img src="images/iphone11-pro.jpg" alt="">
-								</div>
-							</td>
-							<td class="column-2">Iphone-11-pro</td>
-							<td class="column-3">30<span>$</span></td>
-							<td class="column-4">
-								<div class="quantity-product">
-									<input type="button" id="minus" value="-" onclick="minus_quantity_product()">
-									<input type="number" id="">
-									<input type="button" id="add" value="+"  onclick="add_quantity_product()">
-								</div>
-							</td>
-							<td class="column-5"></td>
-						</tr>
-						<tr class="table-row">
-							<td class="column-1">
-								<div class="img-product"></div>
-							</td>
-							<td class="column-2">Iphone-11-pro</td>
-							<td class="column-3">30$</td>
-							<td>
-								<div class="quantity-product">
-									<input type="button" id="minus" value="-" onclick="minus_quantity_product()">
-									<input type="number" id="values">
-									<input type="button" id="add" value="+"  onclick="add_quantity_product()">
-								</div>
-							</td>
-							<td class="column-4"></td>
-						</tr>
-					</tbody>
+                                    <tbody id="my-table">
+						
+					
+						
+                                    </tbody>
 				</table>
 				<div class="update-cart">
-					<button class="update">Cập nhật</button>
+                                    <button class="update" onclick="update()">Cập nhật</button>
 				</div>
 			</div>
 			<div class="col-3 col-12 info-customer">
 				<h4 class="text">
 					Cart Totals
-				</h4>
-				<div class="total flex-w">
-					<div class="flex-3 title">
-						Subtotal:
-					</div>
-					<div class="flex-7 price">
-						$30
-					</div>
-				</div>
+				</h4>				
 				<div class="shipping flex-w">
 					<div class="flex-3 title">
 						Shipping:
@@ -112,16 +72,15 @@
 					<div class="flex-3 title">
 						Total:
 					</div>
-					<div class="flex-7 price-total">
-						$79.65
+                                    <div class="flex-7 price-total" id="payment">
 					</div>
 				</div>
-				<button class="btn-order">Chấp nhận</button>
+                                <button class="btn-order" onclick="createBill()">Chấp nhận</button>
 			</div>
 		</div>
 	</div>
 	<jsp:include page="/view/footer.jsp" ></jsp:include>
-	<script src="js/gian-soluong-sanpham.js" type="text/javascript"></script>
-	<script src="js/them-soluong-sanpham.js" type="text/javascript"></script>
+        <script src="template\js\jquery.min.js"></script>
+        <script src="template\js\cart.js"></script>
 </body>
 </html>
